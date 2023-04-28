@@ -17,6 +17,7 @@ readonly dataStateEnum = DataStateEnum;
 error = null;
 eventEmitter: any;
 
+
 constructor(private aircraftService:AircraftService) {}
 
 ngOnInit(): void {
@@ -55,7 +56,16 @@ onActionEvent($event:any) {
     case "DEVELOPMENT_AIRCRAFTS":
       return this.getDevelopmentAircrafts();
   }
+switch($event.type) {
+  case AircraftsActionTypes.GET_ALL_AIRCRAFTS :
+  this.getAllAircrafts();
+  break;
 
+  case AircraftsActionTypes.GET_SEARCH_AIRCRAFTS :
+  this.onSearch($event.payload);
+  break;
+
+}
 
 }
 }

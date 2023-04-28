@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, catchError, map, of, startWith } from 'rxjs';
 import { Aircraft } from 'src/app/models/aircraft.model';
 import { AircraftService } from 'src/app/services/aircraft.service';
-import { DataStateEnum } from 'src/app/state/aircraft.state';
+import { AircraftsActionTypes, DataStateEnum } from 'src/app/state/aircraft.state';
 import { AppDataState } from 'src/app/state/aircraft.state';
 
 @Component({
@@ -31,8 +31,13 @@ getAllAircrafts() {
   startWith({dataState : DataStateEnum.LOADING}),
   catchError(err => of({dataStatate : DataStateEnum.ERROR, errorMessage : err.message }))
  );
+
+ this.eventEmitter.emit({type:AircraftsActionTypes.GET_ALL_AIRCRAFTS, payload:null})
   }
 
+  onSearch(value:any){
+    this.eventEmitter.emit({type : AircraftsActionTypes.GET_SEARCH_AIRCRAFTS, payload:value})
+  }
 getDesignedAircrafts(){
   this.eventEmitter.emit("DESIGNED_AIRCRAFTS");
 }

@@ -1,3 +1,4 @@
+import { ActionEvent } from "../models/action.event";
 export enum DataStateEnum{
     LOADING,
     LOADED,
@@ -14,3 +15,5 @@ export enum DataStateEnum{
     GET_DEVELOPMENT_AIRCRAFTS= "[Aircrafts] Get Developed Aircrafts",
     GET_SEARCH_AIRCRAFTS= "[Aircrafts] Get Search Aircrafts"
   }
+
+export { ActionEvent };

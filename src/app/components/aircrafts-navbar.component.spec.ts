@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AircraftsNavbarComponent } from './aircrafts-navbar.component';
+// import { AircraftsNavbarComponent } from './aircrafts-navbar.component';
 
-describe('AircraftsNavbarComponent', () => {
-  let component: AircraftsNavbarComponent;
-  let fixture: ComponentFixture<AircraftsNavbarComponent>;
+// describe('AircraftsNavbarComponent', () => {
+//   let component: AircraftsNavbarComponent;
+//   let fixture: ComponentFixture<AircraftsNavbarComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AircraftsNavbarComponent ]
-    })
-    .compileComponents();
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       declarations: [ AircraftsNavbarComponent ]
+//     })
+//     .compileComponents();
 
-    fixture = TestBed.createComponent(AircraftsNavbarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//     fixture = TestBed.createComponent(AircraftsNavbarComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

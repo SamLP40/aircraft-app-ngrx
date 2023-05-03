@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AircraftsComponent } from './components/aircrafts/aircrafts.component';
 import { AircraftsNavbarComponent } from './components/aircrafts/aircrafts-navbar/aircrafts-navbar.component';
 import { from } from 'rxjs';
+import { AircraftsReducer } from './ngrx/aircrafts.reducer';
+import { AircraftsEffects } from './ngrx/aircrafts.effects';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,9 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
-EffectsModule.forRoot([]),
-StoreDevtoolsModule.instrument()
+    StoreModule.forRoot({airbusState : AircraftsReducer}),
+    EffectsModule.forRoot([AircraftsEffects]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]

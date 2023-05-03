@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { GetAllAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
 //import { AircraftsComponent } from '../aircrafts.component';
 
 @Component({
@@ -7,19 +9,20 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./aircrafts-navbar.component.css']
 })
 export class AircraftsNavbarComponent implements OnInit {
-  @Output() eventEmitter : EventEmitter<any> = new EventEmitter(); // écouteur d'événements qui va faire le lien avec aircraftcomponent.ts
-  constructor() {}
+ // @Output() eventEmitter : EventEmitter<any> = new EventEmitter(); // écouteur d'événements qui va faire le lien avec aircraftcomponent.ts
+  constructor(private store:Store<any>) {}
   ngOnInit(): void {
     
   }
 
   getAllAircrafts() {
-    this.eventEmitter.emit("ALL_AIRCRAFTS");
+//     // this.eventEmitter.emit("ALL_AIRCRAFTS");
+    this.store.dispatch(new GetAllAircraftsAction({})) // On utilise désormais le store NgRx au lieu de l'écouteur d'événements
   }
-  getDesignedAircrafts() {
-    this.eventEmitter.emit("ALL_AIRCRAFTS");
-  }
-  getDevelopmentAircrafts() {
-    this.eventEmitter.emit("ALL_AIRCRAFTS");
-  }
+//   getDesignedAircrafts() {
+//  //   this.eventEmitter.emit("ALL_AIRCRAFTS");
+//   }
+//   getDevelopmentAircrafts() {
+//     this.eventEmitter.emit("ALL_AIRCRAFTS");
+//   }
 }

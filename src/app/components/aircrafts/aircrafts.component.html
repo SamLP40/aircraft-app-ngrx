@@ -13,6 +13,9 @@
        <ng-container *ngSwitchCase="aircraftStateEnum.ERROR">
         <div class="p-2 text-danger">{{state.errorMessage}}</div>
        </ng-container>
+<ng-container *ngIf="countAlertsAircrafts$ | async as countAircrafts">
+    <h6 class="text-danger">Total aircrafts under design & dev : {{countAlertsAircrafts$}}</h6>
+</ng-container>
        <table class="table table-striped">
         <tr>
             <th>Id</th> <th>Program</th> <th>Design</th> <th>Development</th>

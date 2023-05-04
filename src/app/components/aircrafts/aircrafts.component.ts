@@ -7,6 +7,7 @@ import { AircraftsReducer } from 'src/app/ngrx/aircrafts.reducer';
 import { AircraftService } from 'src/app/services/aircraft.service';
 import { AircraftsActionTypes, DataStateEnum } from 'src/app/state/aircraft.state';
 import { AppDataState } from 'src/app/state/aircraft.state';
+import { selectCountAlertAircrafts } from 'src/app/ngrx/aircrafts.selectors';
 
 @Component({
   selector: 'app-aircrafts',
@@ -16,6 +17,7 @@ import { AppDataState } from 'src/app/state/aircraft.state';
 export class AircraftsComponent implements OnInit {
 aircraftsState$ : Observable<AircraftState> | null = null; //tableau d'avions vide
 // En ngrx : l'observable ne pointe plus le tableau d'aircrafts vide
+countAlertsAircrafts$:Observable<number> | undefined;
 readonly aircraftStateEnum = AircraftsStateEnum;
 
 error = null;
@@ -23,7 +25,9 @@ eventEmitter: any;
 
 
 // constructor(private aircraftService:AircraftService) {}
-constructor(private store:Store<any>){}
+constructor(private store:Store<any>){
+  this.countAlertsAircrafts$ = store.select(selectCountAlertAircrafts);
+}
 
 // On n'utilise plus la fonction gérant les états, c'est au store de le faire
 ngOnInit(): void {

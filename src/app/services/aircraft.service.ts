@@ -12,25 +12,27 @@ import { Aircraft } from '../models/aircraft.model';
 export class AircraftService {
 
   constructor(private http:HttpClient) { }
-  //liste de tous les avions en base => une fois sur 2 on souhaite provoquer une erreur
+  //liste de tous les avions en base => une fois sur 2 on souhaite provoquer une erreur (= random)
  public getAircrafts():Observable<Aircraft[]> {
     // let host = Math.random() > 0.5 ? environment.host : environment.unreachableHost;
     return this.http.get<Aircraft[]>(environment.host+"/aircrafts");
   }
-// avions en phase de design
+// avions en phase de design = OK
   public getDesignedAircrafts():Observable<Aircraft[]>{
     return this.http.get<Aircraft[]>(environment.host+"/aircrafts?design=true");
   }
-  // liste des avions en phase de dev
+  // liste des avions en phase de dev = OK
   public getDevelopmentAircrafts():Observable<Aircraft[]> {
     return this.http.get<Aircraft[]>(environment.host+"/aircrafts?development=true");
   }
-  // renvoie un avion à partir de l'id
+  // renvoie un avion à partir de l'id = OK
   public getAircraftById(id:number):Observable<Aircraft> {
     return this.http.get<Aircraft>(environment.host+"/aircrafts/"+ id);
   }
-  //Recherche un avion par mot clé
-  public search(str:string) {
+  //Recherche un avion par mot clé = OK
+  public search(str:string):Observable<Aircraft[]> {
+    return this.http.get<Aircraft[]>(environment.host+"/aircrafts?prog_like" + str)
+
     // return aircrafts.filter((aircraft) => 
     // aircraft.name.toLowerCase().includes(str.toLocaleLowerCase());
 

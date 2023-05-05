@@ -20,8 +20,8 @@ aircraftsState$ : Observable<AircraftState> | null = null; //tableau d'avions vi
 countAlertsAircrafts$:Observable<number> | undefined;
 readonly aircraftStateEnum = AircraftsStateEnum;
 
-error = null;
-eventEmitter: any;
+// error = null;
+// eventEmitter: any;
 
 
 // constructor(private aircraftService:AircraftService) {}

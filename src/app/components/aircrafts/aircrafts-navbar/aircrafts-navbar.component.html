@@ -7,3 +7,16 @@
         </li>
     </ul>
 </div>
+<form #f ="ngForm" (ngSubmit) ="user(f.value)">
+    <div class="form-group">
+        <label class="control-label">Nom d'utilisateur :</label>      
+        <input type="text" NgModel name="name" required class="label-control">
+        <label class="control-label">MDP :</label>      
+        <input type="text" NgModel name="name" required class="label-control">
+    </div>
+    <button class="btn btn-outline-info m-2" (click) ="user">Se connecter</button>
+
+    <!-- <input type="text" name="name" ngModel>
+    <input type="text" name="name" ngModel>
+    <button type="submit">Se connecter</button> -->
+</form>

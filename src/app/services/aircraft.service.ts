@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Aircraft } from '../models/aircraft.model';
 
-// import { environment } from 'src/environments/environment';
-
+// C'est ici que l'on entre les requêtes qui vont être envoyées vers l'API
 @Injectable({
   providedIn: 'root'
 })
@@ -29,10 +28,12 @@ export class AircraftService {
   public getAircraftById(id:number):Observable<Aircraft> {
     return this.http.get<Aircraft>(environment.host+"/aircrafts/"+ id);
   }
-  //Recherche un avion par mot clé = OK
+  //Recherche un avion par mot clé (like permet de taper une recherche moins précise) = OK
   public search(str:string):Observable<Aircraft[]> {
     return this.http.get<Aircraft[]>(environment.host+"/aircrafts?prog_like" + str)
 
+  // public user():Observable<User>
+  
     // return aircrafts.filter((aircraft) => 
     // aircraft.name.toLowerCase().includes(str.toLocaleLowerCase());
 

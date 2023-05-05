@@ -33,8 +33,9 @@ export class AircraftsNavbarComponent implements OnInit {
 //     this.eventEmitter.emit("ALL_AIRCRAFTS");
 this.store.dispatch(new GetDevelopmentAircrafts({}))
   }
-  user(user:string) { // Méthode qui va chercher les données utilisateur
+  user(users:string) { // Méthode qui va chercher les données utilisateur
    
+
 
   throw new Error('Method not implemented.');
   }

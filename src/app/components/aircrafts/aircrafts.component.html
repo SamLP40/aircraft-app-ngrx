@@ -10,6 +10,7 @@
     <ng-container *ngSwitchCase="aircraftStateEnum.LOADED">
         <div class="p-2">Loaded</div>
         <table class="table table-striped">
+            <tbody>
             <tr>
                 <th>Id</th> <th>Program</th> <th>Design</th> <th>Development</th>
             </tr>
@@ -19,6 +20,7 @@
                 <td>{{aircraft.design}}</td>
                 <td>{{aircraft.development}}</td>
             </tr>
+            </tbody>
             </table>
        </ng-container>
        <ng-container *ngSwitchCase="aircraftStateEnum.ERROR">

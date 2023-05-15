@@ -22,9 +22,9 @@ export class AircraftsEffects {
             })
         )
     )
-    getDesignedAircraftsEffect:Observable<Action> = createEffect(
-        () => this.effectActions.pipe(
-            ofType(AircraftsActionTypes.GET_DESIGNED_AIRCRAFTS),
+    getDesignedAircraftsEffect:Observable<Action> = createEffect( 
+        () => this.effectActions.pipe( //Pipe qui va écouter les états, et agir en cas de changement
+            ofType(AircraftsActionTypes.GET_DESIGNED_AIRCRAFTS), // condition
             mergeMap((action)=> {
                 return this.aircraftService.getDesignedAircrafts().pipe(
                     map((aircrafts) => new GetDesignedAircraftsSuccess(aircrafts)),
